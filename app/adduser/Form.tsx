@@ -28,7 +28,7 @@ function Form() {
   // Function to handle the API call
   const handleApiCall = () => {
     // Define the URL you want to fetch data from
-    const apiUrl = `http://127.0.0.1:5000/api/get?UNIQUE_ID=${aadhar}`;
+    const apiUrl = `http://127.0.0.1:5000/api/add?name=${name}&phone=${phone}&age=${age}&UNIQUE_ID=${aadhar}`;
 
     // Make a GET request using Axios
     setIsLoading(true);

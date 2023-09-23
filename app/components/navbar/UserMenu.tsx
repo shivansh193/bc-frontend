@@ -14,21 +14,19 @@ const UserMenu = () => {
                 <div className="flex flex-row cursor-pointer">
 
                     <MenuItem
-                        onClick={() => {}}
+                        onClick={() => {router.push('/adduser')}}
                         label="Add user"
                     />
                        <MenuItem
-                        onClick={() => {}}
+                        onClick={() => {router.push('./getdoc')}}
                         label="Get document"
                     />
                        <MenuItem
-                        onClick={() => {}}
+                        onClick={() => {router.push('./verifydoc')}}
                         label="Verify document"
                     />
-                       <MenuItem
-                        onClick={() => {}}
-                        label="About us page"
-                    />
+                  
+                  
                 </div>
             </div>
         </div>
