@@ -1,13 +1,20 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Container from '../components/Container';
 
 function Form() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
   const [aadhar, setAadhar] = useState('');
 
-  // Function to handle input changes
+  const [result, setResult]=useState("Result appears here")
+ 
+  const res=(
+    <Container>
+        {result}
+    </Container>
+  )
   const handleInputChange = (event: any) => {
     setAadhar(event.target.value);
   };
@@ -79,6 +86,9 @@ function Form() {
           >
             Submit
           </button>
+          <>
+          {res}
+          </>
         </div>
       </div>
     </div>

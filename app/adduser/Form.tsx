@@ -5,11 +5,24 @@ import axios from 'axios';
 function Form() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
+  const [name, setName] = useState('');
   const [aadhar, setAadhar] = useState('');
+  const [phone, setPhone] = useState('');
+  const [age, setAge] = useState('');
+
 
   // Function to handle input changes
   const handleInputChange = (event: any) => {
     setAadhar(event.target.value);
+  };
+  const handleInputChange1 = (event: any) => {
+    setName(event.target.value);
+  };
+  const handleInputChange2 = (event: any) => {
+    setPhone(event.target.value);
+  };
+  const handleInputChange3 = (event: any) => {
+    setAge(event.target.value);
   };
 
   // Function to handle the API call
@@ -38,9 +51,67 @@ function Form() {
       <div className="w-full related">
         <div className="relative">
           <input
+          placeholder='aadhar'
             type="text"
             value={aadhar}
             onChange={handleInputChange}
+            className="
+              peer
+              w-full
+              p-4
+              pt-6
+              font-dark
+              bg-black
+              border-2
+              rounded-md
+              outline-none
+              transition
+              disabled:opacity-70
+              disabled:cursor-not-allowed"
+          />
+           <input
+           placeholder='age'
+            type="text"
+            value={age}
+            onChange={handleInputChange3}
+            className="
+              peer
+              w-full
+              p-4
+              pt-6
+              font-dark
+              bg-black
+              border-2
+              rounded-md
+              outline-none
+              transition
+              disabled:opacity-70
+              disabled:cursor-not-allowed"
+          />
+           <input
+           placeholder='name'
+            type="text"
+            value={name}
+            onChange={handleInputChange1}
+            className="
+              peer
+              w-full
+              p-4
+              pt-6
+              font-dark
+              bg-black
+              border-2
+              rounded-md
+              outline-none
+              transition
+              disabled:opacity-70
+              disabled:cursor-not-allowed"
+          />
+           <input
+           placeholder='phone'
+            type="text"
+            value={phone}
+            onChange={handleInputChange2}
             className="
               peer
               w-full

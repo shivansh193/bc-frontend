@@ -1,13 +1,19 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Container from '../components/Container';
 
 function Form() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
-  const [aadhar, setAadhar] = useState('');
-
+  const [aadhar, setAadhar] = useState(''); 
+  const [result, setResult]=useState("Result appears here")
   // Function to handle input changes
+  const res=(
+    <Container>
+        {result}
+    </Container>
+  )
   const handleInputChange = (event: any) => {
     setAadhar(event.target.value);
   };
@@ -24,6 +30,7 @@ function Form() {
       .then((response) => {
         console.log(response.data);
         setData(response.data);
+        setResult(response.data)
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -79,6 +86,9 @@ function Form() {
           >
             Submit
           </button>
+          <>
+          {res}
+          </>
         </div>
       </div>
     </div>
