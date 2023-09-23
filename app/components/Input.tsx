@@ -8,18 +8,17 @@ interface InputProps {
   label: string;
   type?: string;
   disabled?: boolean;
-  required?: boolean;
-  register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
+  value: string;
 }
 const Input: React.FC<InputProps> = ({
   id,
   label,
   type = "text",
   disabled,
-  required,
+ 
   errors,
-  register,
+ 
 }) => {
   return (
     <div className="w-full related">
@@ -28,7 +27,7 @@ const Input: React.FC<InputProps> = ({
         <input
           id={id}
           disabled={disabled}
-          {...register(id, { required })}
+          value={value}
           placeholder=""
           type={type}
           className={`

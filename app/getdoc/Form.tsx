@@ -1,58 +1,88 @@
-"use client";
+'use client'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-
-import { useCallback, useState } from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import Modal from "../components/Modal"
-import Heading from "../components/Heading";
-import Input from "../components/Input"
-import { useRouter } from "next/navigation";
-
-const Form = () => {
-  const router = useRouter();
+function Form() {
   const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState(null);
+  const [aadhar, setAadhar] = useState('');
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FieldValues>({
-    defaultValues: {
-     number:""
-    },
-  });
+  // Function to handle input changes
+  const handleInputChange = (event: any) => {
+    setAadhar(event.target.value);
+  };
 
+  // Function to handle the API call
+  const handleApiCall = () => {
+    // Define the URL you want to fetch data from
+    const apiUrl = `http://127.0.0.1:5000/api/get?UNIQUE_ID=${aadhar}`;
 
-  const bodyContent = (
-    <div className="flex flex-col gap-[6px]">
-      <Heading
-        title="Welcome back "
-        subtitle="Fetch your documents from here"
-        center
-      />
-
-      <Input
-        id="number"
-        type="text"
-        label="Aadhar number"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-      />
-    </div>
-  );
-
+    // Make a GET request using Axios
+    setIsLoading(true);
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
   return (
-    <Modal
-      disabled={isLoading}
-      title="Get your documents"
-      actionLabel="Fetch documents"
-      onSubmit={()=>{}}
-      body={bodyContent}
-    />
+    <div className="flex flex-col gap-[6px]">
+      <div className="w-full related">
+        <div className="relative">
+          <input
+            type="text"
+            value={aadhar}
+            onChange={handleInputChange}
+            className="
+              peer
+              w-full
+              p-4
+              pt-6
+              font-dark
+              bg-white
+              border-2
+              rounded-md
+              outline-none
+              transition
+              disabled:opacity-70
+              disabled:cursor-not-allowed"
+          />
+          <button
+            onClick={handleApiCall}
+            className={`
+              flex
+              justify-center
+              items-center
+              gap-[15px]
+              disabled:opacity-70
+              disabled:cursor-not-allowed
+              rounded-lg
+              hover:opacity-80
+              transition
+              w-full
+              bg-orange-500
+              border-black
+              text-white
+              py-3
+              text-md
+              font-semibold
+              border-2
+            `}
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
-export default Form
+export default Form;
