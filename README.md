@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Documentation for DeDoci
+Problem statement
+Online Blockchain based certificate generation and validation system for government organisation.
+Description
+Currently large no of training programs is organized, and certificates are provided. There is no mechanism to validate digital certificate.so create a system in which custom digital certificate generate. User can store certificate in digital locker system other organization will validate certificate. Use opensource software and blockchain technology. Expected Output: Blockchain Based Certificate generation and validation Certificate can be added in Digital Loker System Users: Government Office, Student, Industry, Institutes
 
-## Getting Started
+Our solution
 
-First, run the development server:
+We implemented our own Layer-1 blockchain from scratch and implemented a proper document addition, validation and fetching system. 
+Here are all the three features described in detail:
+Addition: Using the addition you can directly add a new user using the basic necessary information, like name, phone number, age and aadhar card details. We are using aadhar card as our unique primary key for filtering out one particular entry from the entire chain. Addition of a new user would mean a new block will be added to the blockchain and a hash would be produced, which would be then connected to the next hash as well. The existing blocks are immutable and for editing, a new block has to be added at the end of the chain.
+Validation: For verification of authenticity of the documents, we have come up with a validation system. The primary use cases of this system include recruiters verifying data for their potential employees or checking for authenticity of government issued documents and their implementation.
+Fetching existing documents: Our platform could be used as a digital vault for fetching documents as well. Due to the security provided by the entire blockchain, the fetched documents will be validated and verified beforehand.
+Bolstered security: We have implemented a data encryption system, and our future update will include access to data by only particular users.
+TECHNICALITIES AND FEATURES
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Python Libraries which the project depends on ->
+flask 
+flask-cors
+cryptography
+hashlib
+json
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+FLASK
+Flask handles the main web-backend of our project. The project does not use Flask to generate Jinja-based templates; it acts as an API, responding to calls made from the frontend (based in Next.js).
 
-## Learn More
+FLASK-CORS
+A simple module to prevent the browser from shutting down Cross Origin Requests (requests across ports) when test-running on the same machine from different ports.
 
-To learn more about Next.js, take a look at the following resources:
+CRYPTOGRAPHY
+This module is used to encrypt and decrypt the user data associated with the form, increasing its security. A future planned update is to enable TSA, which will make sure that only a user can access their own data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+HASHLIB
+Used to create hashes, the backbone of blockchain tech.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+JSON
+Used to convert a dictionary of data (user related) into strings to simplify storage.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+INSTALLATION
+
+py -m pip install <dependancy name>
+
+
+
+RUNNING THE APP
+Clone -
+github.com/paperbrr/bc-backend 
+github.com/shivansh193/bc-frontend
+
+Using git clone <repo-link>
+Make sure you have all the Python dependencies installed, along with NPM.
+
+In the terminal, navigate to the back-end directory and run the routes.py file.
+Navigate to the front-end directory and type in npm run dev
