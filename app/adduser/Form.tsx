@@ -20,6 +20,7 @@ const Form = () => {
       number: "",
       phone: "",
       name: "",
+      age:""
     },
   });
 
@@ -53,7 +54,15 @@ const Form = () => {
         register={register}
         errors={errors}
         required
-      />
+      />   <Input
+      id="age"
+      type="text"
+      label="Age"
+      disabled={isLoading}
+      register={register}
+      errors={errors}
+      required
+    />
     </div>
   );
 
