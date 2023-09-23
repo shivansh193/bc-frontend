@@ -15,19 +15,19 @@ const UserMenu = () => {
 
                     <MenuItem
                         onClick={() => {}}
-                        label="Opt 1"
+                        label="Add user"
                     />
                        <MenuItem
                         onClick={() => {}}
-                        label="Opt 2"
+                        label="Get document"
                     />
                        <MenuItem
                         onClick={() => {}}
-                        label="Opt 3"
+                        label="Verify document"
                     />
                        <MenuItem
                         onClick={() => {}}
-                        label="Opt 4"
+                        label="About us page"
                     />
                 </div>
             </div>
