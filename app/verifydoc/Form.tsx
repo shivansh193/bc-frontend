@@ -18,7 +18,10 @@ const Form = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-     number:""
+     number:"",
+     phone:"",
+     name:""
+
     },
   });
 
@@ -33,7 +36,7 @@ const Form = () => {
 
       <Input
         id="number"
-        type="number"
+        type="text"
         label="Aadhar number"
         disabled={isLoading}
         register={register}
@@ -43,7 +46,7 @@ const Form = () => {
         <Input
         id="name"
         type="text"
-        label="name"
+        label="Name"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -51,7 +54,7 @@ const Form = () => {
       />
         <Input
         id="phone"
-        type="number"
+        type="text"
         label="Phone number"
         disabled={isLoading}
         register={register}
