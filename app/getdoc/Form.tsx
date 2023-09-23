@@ -47,7 +47,7 @@ function Form() {
               p-4
               pt-6
               font-dark
-              bg-white
+              bg-black
               border-2
               rounded-md
               outline-none
