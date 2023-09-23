@@ -47,9 +47,7 @@ py -m pip install <dependancy name>
 
 
 RUNNING THE APP
-Clone -
-github.com/paperbrr/bc-backend 
-github.com/shivansh193/bc-frontend
+Clone the repo
 
 Using git clone <repo-link>
 Make sure you have all the Python dependencies installed, along with NPM.
